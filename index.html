@@ -638,19 +638,37 @@ button:disabled{opacity:.7;cursor:default}
 </select>
 </div>
 <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px">
+<label for="b-consent" style="display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.5; color: #B6ADC3; cursor: pointer">
+<input id="b-consent" name="consent" type="checkbox" required style="flex: 0 0 auto; width: 20px; height: 20px; margin: 1px 0 0; accent-color: #B48FDC; cursor: pointer">
+<span>Я даю <a href="consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></span>
+</label>
 <button type="submit" id="b-submit" style="min-height: 52px; border: 0; border-radius: 999px; background: #B48FDC; color: #140F1A; font: inherit; font-weight: 600; cursor: pointer">Отправить заявку</button>
 <div id="b-status" role="status" aria-live="polite" style="font-size: 15px; color: #C6A6EA; min-height: 1.4em"></div>
-<div style="font-size: 13px; color: #8F869C">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</div>
 </form>
 </div>
 </section>
 
 <footer style="max-width: 1200px; margin: 0 auto; padding: 32px 24px 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; color: #8F869C">
-<span>© 2026 ПодоЛайн, студия подологии</span>
+<span>© 2026 ПодоЛайн, студия подологии · ИП Бойко В. Е.</span>
 <span>Подолог не ставит диагнозов. При подозрении на заболевание направим к врачу.</span>
+<a href="privacy.html" style="color: #8F869C">Политика обработки персональных данных</a>
 </footer>
 
 </div>
+<script>
+// Не даём отправить заявку без согласия. Срабатывает раньше обработчика формы из main.js.
+document.addEventListener('submit', function (e) {
+  if (!e.target || e.target.id !== 'booking-form') return;
+  var box = document.getElementById('b-consent');
+  if (box && !box.checked) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var status = document.getElementById('b-status');
+    if (status) status.textContent = 'Отметьте согласие на обработку персональных данных, чтобы отправить заявку.';
+    box.focus();
+  }
+}, true);
+</script>
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>
 </body>
