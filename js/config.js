@@ -5,5 +5,5 @@
   Пока адрес пустой, форма предлагает позвонить по телефону.
 */
 window.PODOLINE_CONFIG = {
-  workerUrl: ''
+workerUrl: 'https://anakensky-podoline-api-4522.twc1.net/lead'
 };
