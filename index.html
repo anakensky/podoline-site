@@ -41,6 +41,28 @@ button:disabled{opacity:.7;cursor:default}
   "founder": { "@type": "Person", "name": "Бойко Валерия Евгеньевна" }
 }
 </script>
+<style>
+/* Прогулка по студии на фотографиях */
+.ptour{position:relative;height:420vh;height:420svh;background:#0B0A0E}
+.ptour-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#0B0A0E}
+.ptour-slide{position:absolute;inset:0;opacity:0;will-change:opacity}
+.ptour-img,.ptour-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
+.ptour-bg{display:none}
+.ptour-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(11,10,14,.45),rgba(11,10,14,0) 22%,rgba(11,10,14,0) 60%,rgba(11,10,14,.55))}
+.ptour-pills{position:absolute;top:20px;left:24px;right:24px;display:flex;flex-wrap:wrap;gap:8px}
+.tour-pill{padding:6px 14px;border-radius:999px;font-size:14px;font-weight:500;background:rgba(255,255,255,.85);color:#141118;transition:background .3s,color .3s}
+.tour-pill.is-on{background:#141118;color:#F3EFF8}
+.ptour-cap{position:absolute;left:24px;right:24px;bottom:24px;max-width:440px;background:rgba(20,17,24,.92);border-radius:18px;padding:20px 22px;box-shadow:0 12px 40px rgba(20,17,24,.35);display:flex;flex-direction:column;gap:6px}
+.ptour-cap-n{font-size:13px;letter-spacing:.14em;color:#B48FDC;font-weight:600}
+.ptour-cap-title{font-family:'Prata',Georgia,serif;font-size:26px;line-height:1.2;color:#F3EFF8}
+.ptour-cap-text{color:#B6ADC3;font-size:15px}
+/* вертикальное фото на широком экране: целиком, на размытом фоне */
+@media (orientation: landscape){
+.ptour-slide--tall .ptour-bg{display:block;filter:blur(28px) brightness(.4);transform:scale(1.15)}
+.ptour-slide--tall .ptour-img{object-fit:contain}
+}
+@media (max-width:600px){.ptour-cap{padding:16px 18px}.ptour-cap-title{font-size:22px}.tour-pill{font-size:13px;padding:5px 12px}}
+</style>
 </head>
 <body>
 <div style="font-family: 'Golos Text', 'Segoe UI', system-ui, sans-serif; color: #F3EFF8; background: #0B0A0E; font-size: 17px; line-height: 1.6">
@@ -81,191 +103,36 @@ button:disabled{opacity:.7;cursor:default}
 <h2 style="margin: 0; font-family: 'Prata', Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.15">Загляните в кабинет</h2>
 <p style="margin: 0; color: #B6ADC3; max-width: 460px">Листайте вниз, и вы пройдёте по студии от входа до стерилизационной.</p>
 </section>
-<div id="tour" style="position: relative; height: 3200px">
-<div style="position: sticky; top: 0; height: 720px; overflow: hidden; background: #CFC5DB; perspective: 800px; perspective-origin: 50% 45%">
-<div id="tour-world" style="position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform-style: preserve-3d">
+<div id="tour" class="ptour">
+<div class="ptour-stage">
 
-
-<div data-z="0" data-k="seg" style="position: absolute; left:-800px;top:130px;width:1600px;height:500px;transform:translateZ(-250px) rotateX(90deg);background:repeating-linear-gradient(90deg,#DCCFC2 0 158px,#CFC0B1 158px 160px)"></div>
-
-
-<div data-z="0" data-k="seg" style="position: absolute; left:-800px;top:-630px;width:1600px;height:500px;transform:translateZ(-250px) rotateX(-90deg);background:linear-gradient(90deg,#F1EEF4 0 700px,#FFFFFF 700px 900px,#F1EEF4 900px)"></div>
-
-
-<div data-z="0" data-k="seg" style="position: absolute; left:-1050px;top:-380px;width:500px;height:760px;transform:translateZ(-250px) rotateY(90deg);background:linear-gradient(to top,#D5CCE0 0 28px,#ECE7F1 28px)"></div>
-
-
-<div data-z="0" data-k="seg" style="position: absolute; left:550px;top:-380px;width:500px;height:760px;transform:translateZ(-250px) rotateY(-90deg);background:linear-gradient(to top,#CCC2D9 0 28px,#E4DEEB 28px)"></div>
-
-
-<div data-z="-500" data-k="seg" style="position: absolute; left:-800px;top:130px;width:1600px;height:500px;transform:translateZ(-750px) rotateX(90deg);background:repeating-linear-gradient(90deg,#DCCFC2 0 158px,#CFC0B1 158px 160px)"></div>
-
-
-<div data-z="-500" data-k="seg" style="position: absolute; left:-800px;top:-630px;width:1600px;height:500px;transform:translateZ(-750px) rotateX(-90deg);background:linear-gradient(90deg,#F1EEF4 0 700px,#FFFFFF 700px 900px,#F1EEF4 900px)"></div>
-
-
-<div data-z="-500" data-k="seg" style="position: absolute; left:-1050px;top:-380px;width:500px;height:760px;transform:translateZ(-750px) rotateY(90deg);background:linear-gradient(to top,#D5CCE0 0 28px,#ECE7F1 28px)"></div>
-
-
-<div data-z="-500" data-k="seg" style="position: absolute; left:550px;top:-380px;width:500px;height:760px;transform:translateZ(-750px) rotateY(-90deg);background:linear-gradient(to top,#CCC2D9 0 28px,#E4DEEB 28px)"></div>
-
-
-<div data-z="-1000" data-k="seg" style="position: absolute; left:-800px;top:130px;width:1600px;height:500px;transform:translateZ(-1250px) rotateX(90deg);background:repeating-linear-gradient(90deg,#DCCFC2 0 158px,#CFC0B1 158px 160px)"></div>
-
-
-<div data-z="-1000" data-k="seg" style="position: absolute; left:-800px;top:-630px;width:1600px;height:500px;transform:translateZ(-1250px) rotateX(-90deg);background:linear-gradient(90deg,#F1EEF4 0 700px,#FFFFFF 700px 900px,#F1EEF4 900px)"></div>
-
-
-<div data-z="-1000" data-k="seg" style="position: absolute; left:-1050px;top:-380px;width:500px;height:760px;transform:translateZ(-1250px) rotateY(90deg);background:linear-gradient(to top,#D5CCE0 0 28px,#ECE7F1 28px)"></div>
-
-
-<div data-z="-1000" data-k="seg" style="position: absolute; left:550px;top:-380px;width:500px;height:760px;transform:translateZ(-1250px) rotateY(-90deg);background:linear-gradient(to top,#CCC2D9 0 28px,#E4DEEB 28px)"></div>
-
-
-<div data-z="-1500" data-k="seg" style="position: absolute; left:-800px;top:130px;width:1600px;height:500px;transform:translateZ(-1750px) rotateX(90deg);background:repeating-linear-gradient(90deg,#DCCFC2 0 158px,#CFC0B1 158px 160px)"></div>
-
-
-<div data-z="-1500" data-k="seg" style="position: absolute; left:-800px;top:-630px;width:1600px;height:500px;transform:translateZ(-1750px) rotateX(-90deg);background:linear-gradient(90deg,#F1EEF4 0 700px,#FFFFFF 700px 900px,#F1EEF4 900px)"></div>
-
-
-<div data-z="-1500" data-k="seg" style="position: absolute; left:-1050px;top:-380px;width:500px;height:760px;transform:translateZ(-1750px) rotateY(90deg);background:linear-gradient(to top,#D5CCE0 0 28px,#ECE7F1 28px)"></div>
-
-
-<div data-z="-1500" data-k="seg" style="position: absolute; left:550px;top:-380px;width:500px;height:760px;transform:translateZ(-1750px) rotateY(-90deg);background:linear-gradient(to top,#CCC2D9 0 28px,#E4DEEB 28px)"></div>
-
-
-<div data-z="-2000" data-k="seg" style="position: absolute; left:-800px;top:130px;width:1600px;height:500px;transform:translateZ(-2250px) rotateX(90deg);background:repeating-linear-gradient(90deg,#DCCFC2 0 158px,#CFC0B1 158px 160px)"></div>
-
-
-<div data-z="-2000" data-k="seg" style="position: absolute; left:-800px;top:-630px;width:1600px;height:500px;transform:translateZ(-2250px) rotateX(-90deg);background:linear-gradient(90deg,#F1EEF4 0 700px,#FFFFFF 700px 900px,#F1EEF4 900px)"></div>
-
-
-<div data-z="-2000" data-k="seg" style="position: absolute; left:-1050px;top:-380px;width:500px;height:760px;transform:translateZ(-2250px) rotateY(90deg);background:linear-gradient(to top,#D5CCE0 0 28px,#ECE7F1 28px)"></div>
-
-
-<div data-z="-2000" data-k="seg" style="position: absolute; left:550px;top:-380px;width:500px;height:760px;transform:translateZ(-2250px) rotateY(-90deg);background:linear-gradient(to top,#CCC2D9 0 28px,#E4DEEB 28px)"></div>
-
-
-<div data-z="-2500" data-k="seg" style="position: absolute; left:-800px;top:130px;width:1600px;height:500px;transform:translateZ(-2750px) rotateX(90deg);background:repeating-linear-gradient(90deg,#DCCFC2 0 158px,#CFC0B1 158px 160px)"></div>
-
-
-<div data-z="-2500" data-k="seg" style="position: absolute; left:-800px;top:-630px;width:1600px;height:500px;transform:translateZ(-2750px) rotateX(-90deg);background:linear-gradient(90deg,#F1EEF4 0 700px,#FFFFFF 700px 900px,#F1EEF4 900px)"></div>
-
-
-<div data-z="-2500" data-k="seg" style="position: absolute; left:-1050px;top:-380px;width:500px;height:760px;transform:translateZ(-2750px) rotateY(90deg);background:linear-gradient(to top,#D5CCE0 0 28px,#ECE7F1 28px)"></div>
-
-
-<div data-z="-2500" data-k="seg" style="position: absolute; left:550px;top:-380px;width:500px;height:760px;transform:translateZ(-2750px) rotateY(-90deg);background:linear-gradient(to top,#CCC2D9 0 28px,#E4DEEB 28px)"></div>
-
-
-<!-- Задняя стена -->
-<div data-z="-3000" data-k="seg" style="position: absolute; left: -800px; top: -380px; width: 1600px; height: 760px; transform: translateZ(-3000px); background: linear-gradient(to top, #CFC5DA 0 28px, #E2DBEA 28px)">
-<div style="position: absolute; left: 240px; top: 170px; width: 420px; height: 300px; box-sizing: border-box; border: 14px solid #FFFFFF; background: #EEF2F7">
-<div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 10px; margin-left: -5px; background: #FFFFFF"></div>
+<div class="ptour-slide" data-pan="18 62" style="opacity: 1">
+<img class="ptour-img" src="images/tour/1-vhod.jpg" alt="Вход в студию: слева рабочий стол, справа кресло и вешалка" width="1920" height="1079" decoding="async">
 </div>
-<div style="position: absolute; left: 860px; top: 190px; width: 120px; height: 120px; box-sizing: border-box; border-radius: 50%; border: 8px solid #8E6BB8; border-right-color: transparent; border-top-color: transparent; transform: rotate(10deg)"></div>
-<div style="position: absolute; left: 960px; top: 200px; font-family: 'Prata', Georgia, serif; font-size: 66px; color: #8E6BB8">ПодоЛайн</div>
-<div style="position: absolute; left: 966px; top: 292px; font-size: 18px; letter-spacing: 0.2em; color: #5E5468">стерильная зона</div>
+<div class="ptour-slide" data-pan="30 75">
+<img class="ptour-img" src="images/tour/2-ozhidanie.jpg" alt="Зона ожидания: мягкое кресло, кулер с водой, столик и вешалка" width="1920" height="1080" loading="lazy" decoding="async">
+</div>
+<div class="ptour-slide" data-pan="22 70">
+<img class="ptour-img" src="images/tour/3-kabinet.jpg" alt="Кабинет подолога: кресло, лампа-лупа, аппарат с пылесосом и рабочий стол" width="1920" height="1080" loading="lazy" decoding="async">
+</div>
+<div class="ptour-slide ptour-slide--tall" data-pan="50 50">
+<img class="ptour-bg" src="images/tour/4-sterilizaciya.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+<img class="ptour-img" src="images/tour/4-sterilizaciya.jpg" alt="Стерилизационная зона: воздушный стерилизатор и инструмент в крафт-пакетах" width="1080" height="1920" loading="lazy" decoding="async">
 </div>
 
-<!-- Ресепшен -->
-<div data-z="-600" style="position: absolute; left: -570px; top: 180px; width: 380px; height: 200px; transform: translateZ(-600px)">
-<div style="position: absolute; left: 0; top: 0; width: 380px; height: 18px; border-radius: 6px; background: #FFFFFF"></div>
-<div style="position: absolute; left: 10px; top: 18px; width: 360px; height: 182px; background: #141118; display: flex; align-items: center; justify-content: center; font-family: 'Prata', Georgia, serif; font-size: 36px; color: #B48FDC">ПодоЛайн</div>
-</div>
-<div data-z="-650" style="position: absolute; left: -705px; top: 150px; width: 90px; height: 230px; transform: translateZ(-650px)">
-<div style="position: absolute; left: 10px; top: 0; width: 40px; height: 120px; border-radius: 50%; background: #3F7A62; transform: rotate(-18deg)"></div>
-<div style="position: absolute; left: 40px; top: 10px; width: 40px; height: 120px; border-radius: 50%; background: #4F8E73; transform: rotate(16deg)"></div>
-<div style="position: absolute; left: 15px; top: 170px; width: 60px; height: 60px; border-radius: 6px 6px 14px 14px; background: #141118"></div>
-</div>
-
-<!-- Зона ожидания -->
-<div data-z="-1250" style="position: absolute; left: 210px; top: 210px; width: 380px; height: 170px; transform: translateZ(-1250px)">
-<div style="position: absolute; left: 20px; top: 0; width: 340px; height: 96px; border-radius: 18px; background: #A890C6"></div>
-<div style="position: absolute; left: 0; top: 40px; width: 40px; height: 100px; border-radius: 14px; background: #9478B8"></div>
-<div style="position: absolute; right: 0; top: 40px; width: 40px; height: 100px; border-radius: 14px; background: #9478B8"></div>
-<div style="position: absolute; left: 30px; top: 84px; width: 320px; height: 56px; border-radius: 14px; background: #B9A4D4"></div>
-<div style="position: absolute; left: 30px; top: 140px; width: 12px; height: 30px; background: #141118"></div>
-<div style="position: absolute; right: 30px; top: 140px; width: 12px; height: 30px; background: #141118"></div>
-</div>
-<div data-z="-1150" style="position: absolute; left: 75px; top: 300px; width: 150px; height: 80px; transform: translateZ(-1150px)">
-<div style="position: absolute; left: 0; top: 0; width: 150px; height: 10px; border-radius: 5px; background: #141118"></div>
-<div style="position: absolute; left: 20px; top: 10px; width: 8px; height: 70px; background: #141118"></div>
-<div style="position: absolute; right: 20px; top: 10px; width: 8px; height: 70px; background: #141118"></div>
-<div style="position: absolute; left: 60px; top: -26px; width: 22px; height: 26px; border-radius: 4px; background: #FFFFFF"></div>
-</div>
-<div data-z="-1350" style="position: absolute; left: 615px; top: 150px; width: 90px; height: 230px; transform: translateZ(-1350px)">
-<div style="position: absolute; left: 10px; top: 0; width: 40px; height: 120px; border-radius: 50%; background: #3F7A62; transform: rotate(-18deg)"></div>
-<div style="position: absolute; left: 40px; top: 10px; width: 40px; height: 120px; border-radius: 50%; background: #4F8E73; transform: rotate(16deg)"></div>
-<div style="position: absolute; left: 15px; top: 170px; width: 60px; height: 60px; border-radius: 6px 6px 14px 14px; background: #141118"></div>
-</div>
-
-<!-- Кресло подолога -->
-<div data-z="-2050" style="position: absolute; left: -370px; top: 80px; width: 340px; height: 300px; transform: translateZ(-2050px)">
-<div style="position: absolute; left: 140px; top: 210px; width: 60px; height: 80px; background: #2A2433"></div>
-<div style="position: absolute; left: 100px; top: 285px; width: 140px; height: 15px; border-radius: 8px; background: #2A2433"></div>
-<div style="position: absolute; left: 40px; top: 40px; width: 56px; height: 170px; border-radius: 16px; background: #8E6BB8; transform: rotate(-18deg)"></div>
-<div style="position: absolute; left: 34px; top: 14px; width: 60px; height: 34px; border-radius: 12px; background: #A383CC; transform: rotate(-18deg)"></div>
-<div style="position: absolute; left: 70px; top: 170px; width: 200px; height: 44px; border-radius: 14px; background: #8E6BB8"></div>
-<div style="position: absolute; left: 110px; top: 150px; width: 120px; height: 14px; border-radius: 7px; background: #2A2433"></div>
-<div style="position: absolute; left: 248px; top: 172px; width: 50px; height: 120px; border-radius: 14px; background: #8E6BB8; transform: rotate(-28deg); transform-origin: top center"></div>
-</div>
-<div data-z="-2150" style="position: absolute; left: -30px; top: -60px; width: 140px; height: 440px; transform: translateZ(-2150px)">
-<div style="position: absolute; left: 66px; top: 110px; width: 8px; height: 310px; background: #8E8899"></div>
-<div style="position: absolute; left: 30px; top: 420px; width: 80px; height: 20px; border-radius: 10px; background: #8E8899"></div>
-<div style="position: absolute; left: 20px; top: 10px; width: 100px; height: 100px; box-sizing: border-box; border-radius: 50%; border: 12px solid #FFFFFF; background: #FAF8FC; box-shadow: 0 0 40px rgba(255,255,255,0.9)"></div>
-</div>
-<div data-z="-2000" style="position: absolute; left: 205px; top: 150px; width: 150px; height: 230px; transform: translateZ(-2000px)">
-<div style="position: absolute; left: 25px; top: 0; width: 100px; height: 44px; border-radius: 8px; background: #E1DCE7"></div>
-<div style="position: absolute; left: 40px; top: 16px; width: 12px; height: 12px; border-radius: 50%; background: #8E6BB8"></div>
-<div style="position: absolute; left: 0; top: 50px; width: 150px; height: 168px; border-radius: 10px; background: #FFFFFF"></div>
-<div style="position: absolute; left: 12px; top: 105px; width: 126px; height: 2px; background: #D3CADD"></div>
-<div style="position: absolute; left: 12px; top: 160px; width: 126px; height: 2px; background: #D3CADD"></div>
-<div style="position: absolute; left: 14px; top: 218px; width: 12px; height: 12px; border-radius: 50%; background: #2A2433"></div>
-<div style="position: absolute; right: 14px; top: 218px; width: 12px; height: 12px; border-radius: 50%; background: #2A2433"></div>
-</div>
-
-<!-- Стерилизационная -->
-<div data-z="-2850" style="position: absolute; left: -550px; top: 20px; width: 260px; height: 360px; transform: translateZ(-2850px)">
-<div style="position: absolute; inset: 0; border-radius: 8px; background: #FFFFFF"></div>
-<div style="position: absolute; left: 12px; top: 22px; display: flex; gap: 8px"><div style="width: 50px; height: 70px; background: #CDB497"></div><div style="width: 50px; height: 70px; background: #C4A988"></div><div style="width: 50px; height: 70px; background: #CDB497"></div><div style="width: 50px; height: 70px; background: #C4A988"></div></div>
-<div style="position: absolute; left: 0; top: 100px; width: 260px; height: 4px; background: #D3CADD"></div>
-<div style="position: absolute; left: 12px; top: 136px; display: flex; gap: 8px"><div style="width: 50px; height: 70px; background: #C4A988"></div><div style="width: 50px; height: 70px; background: #CDB497"></div><div style="width: 50px; height: 70px; background: #C4A988"></div></div>
-<div style="position: absolute; left: 0; top: 214px; width: 260px; height: 4px; background: #D3CADD"></div>
-<div style="position: absolute; left: 12px; top: 250px; display: flex; gap: 8px"><div style="width: 50px; height: 70px; background: #CDB497"></div><div style="width: 50px; height: 70px; background: #C4A988"></div></div>
-</div>
-<div data-z="-2880" style="position: absolute; left: 230px; top: 100px; width: 300px; height: 280px; transform: translateZ(-2880px)">
-<div style="position: absolute; left: 60px; top: 20px; width: 180px; height: 100px; border-radius: 10px; background: #E6E2EB"></div>
-<div style="position: absolute; left: 80px; top: 35px; width: 70px; height: 70px; box-sizing: border-box; border-radius: 50%; border: 6px solid #BDB3C9; background: #F5F3F8"></div>
-<div style="position: absolute; left: 170px; top: 45px; width: 50px; height: 20px; border-radius: 4px; background: #8E6BB8"></div>
-<div style="position: absolute; left: 0; top: 120px; width: 300px; height: 160px; border-radius: 10px; background: #FFFFFF"></div>
-<div style="position: absolute; left: 150px; top: 132px; width: 2px; height: 136px; background: #D3CADD"></div>
-</div>
-
-</div>
+<div class="ptour-shade"></div>
 
 <!-- Остановки -->
-<div style="position: absolute; top: 20px; left: 24px; right: 24px; display: flex; flex-wrap: wrap; gap: 8px">
-
-<div class="tour-pill" style="padding: 6px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; background: #141118; color: #F3EFF8">Вход</div>
-
-
-<div class="tour-pill" style="padding: 6px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; background: rgba(255,255,255,0.85); color: #141118">Ресепшен</div>
-
-
-<div class="tour-pill" style="padding: 6px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; background: rgba(255,255,255,0.85); color: #141118">Ожидание</div>
-
-
-<div class="tour-pill" style="padding: 6px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; background: rgba(255,255,255,0.85); color: #141118">Кабинет</div>
-
-
-<div class="tour-pill" style="padding: 6px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; background: rgba(255,255,255,0.85); color: #141118">Стерилизация</div>
-
+<div class="ptour-pills">
+<div class="tour-pill is-on">Вход</div>
+<div class="tour-pill">Ожидание</div>
+<div class="tour-pill">Кабинет</div>
+<div class="tour-pill">Стерилизация</div>
 </div>
-<div style="position: absolute; left: 24px; right: 24px; bottom: 24px; max-width: 420px; background: #141118; border-radius: 18px; padding: 20px 22px; box-shadow: 0 12px 40px rgba(20,17,24,0.35); display: flex; flex-direction: column; gap: 6px">
-<div style="font-size: 13px; letter-spacing: 0.14em; color: #B48FDC; font-weight: 600" id="cap-n">1 из 5</div>
-<div style="font-family: 'Prata', Georgia, serif; font-size: 26px; line-height: 1.2; color: #F3EFF8" id="cap-title">Добро пожаловать</div>
-<div style="color: #B6ADC3; font-size: 15px" id="cap-text">Листайте вниз, чтобы пройти по студии.</div>
+<div class="ptour-cap">
+<div class="ptour-cap-n" id="cap-n">1 из 4</div>
+<div class="ptour-cap-title" id="cap-title">Добро пожаловать</div>
+<div class="ptour-cap-text" id="cap-text">Проспект Копылова, 33, вход с торца здания. Листайте вниз, чтобы пройти внутрь.</div>
 </div>
 </div>
 </div>
